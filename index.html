@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLUX.1-schnell - Generador de Imágenes IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 FLUX.1-schnell</h1>
+            <p>Generador de Imágenes con IA de última generación</p>
+        </div>
+
+        <div class="model-info">
+            <p>
+                <strong>Modelo:</strong> FLUX.1-schnell de Black Forest Labs<br>
+                <strong>Características:</strong> Generación rápida de imágenes de alta calidad • Modelo optimizado para velocidad • Licencia Apache 2.0<br>
+                <strong>API:</strong> Hugging Face Inference API • Conexión directa mediante token
+            </p>
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="apiKey">🔑 Token de API de Hugging Face</label>
+                <input type="password" id="apiKey" placeholder="hf_xxxxxxxxxxxxxxxxxxxxxxxxxx" required>
+                <div class="api-key-info">
+                    ℹ️ Necesitas un token de API gratuito de Hugging Face. 
+                    <a href="https://huggingface.co/settings/tokens" target="_blank">Obtén tu token aquí →</a>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="prompt">✍️ Describe tu imagen</label>
+                <textarea id="prompt" placeholder="Ejemplo: Un astronauta montando un caballo en Marte, estilo fotorrealista, luz cinematográfica, 8k, ultra detallado" required></textarea>
+            </div>
+
+            <div class="advanced-settings">
+                <h3>⚙️ Configuración Avanzada</h3>
+                <div class="settings-grid">
+                    <div class="input-group-small">
+                        <label for="width">Ancho (px)</label>
+                        <input type="number" id="width" value="1024" min="256" max="2048" step="8">
+                    </div>
+                    <div class="input-group-small">
+                        <label for="height">Alto (px)</label>
+                        <input type="number" id="height" value="1024" min="256" max="2048" step="8">
+                    </div>
+                    <div class="input-group-small">
+                        <label for="steps">Pasos de Inferencia</label>
+                        <input type="number" id="steps" value="4" min="1" max="16">
+                    </div>
+                    <div class="input-group-small">
+                        <label for="seed">Semilla (opcional)</label>
+                        <input type="number" id="seed" placeholder="Aleatorio" min="0" max="2147483647">
+                    </div>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="generate-btn" onclick="generateImage()">
+                🚀 Generar Imagen
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Resultado</h2>
+            <div class="image-container" id="imageContainer">
+                <div class="placeholder">Tu imagen aparecerá aquí...</div>
+            </div>
+            <div id="messageContainer"></div>
+        </div>
+
+        <div class="footer">
+            <p>
+                Desarrollado con 💜 usando <a href="https://huggingface.co/black-forest-labs/FLUX.1-schnell" target="_blank">FLUX.1-schnell</a> 
+                y la API de <a href="https://huggingface.co" target="_blank">Hugging Face</a><br>
+                Conectado mediante MCP (Model Context Protocol)
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
